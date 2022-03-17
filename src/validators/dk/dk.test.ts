@@ -15,7 +15,7 @@ describe("DK Validator", () => {
       validator.setStandard("CVR");
     });
 
-    it("should succed", () => {
+    it("should succeed", () => {
       const result = validator.validate("88146328");
       expect(result).toBe(true);
     });

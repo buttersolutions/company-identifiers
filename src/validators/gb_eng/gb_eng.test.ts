@@ -14,8 +14,13 @@ describe("GB-ENG Validator", () => {
       validator.setStandard("VAT");
     });
 
-    it("should succed", () => {
+    it("should succeed by first condition", () => {
       const result = validator.validate("434031494");
+      expect(result).toBe(true);
+    });
+
+    it("should succeed by second condition", () => {
+      const result = validator.validate("434031439");
       expect(result).toBe(true);
     });
 
