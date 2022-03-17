@@ -10,7 +10,7 @@ describe("DK Validator", () => {
     );
   });
 
-  describe("CVR Standart", () => {
+  describe("CVR Standard", () => {
     beforeEach(() => {
       validator.setStandard("CVR");
     });
