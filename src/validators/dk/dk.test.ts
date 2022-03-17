@@ -1,11 +1,11 @@
-import { CompanyRegistrationValidator } from "../../CompanyRegistrationValidator";
+import { CompanyIdentifiers } from "../../CompanyIdentifiers";
 import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "../../enums";
 
 describe("DK Validator", () => {
-  let validator: CompanyRegistrationValidator;
+  let validator: CompanyIdentifiers;
 
   beforeEach(() => {
-    validator = new CompanyRegistrationValidator().setCountry(
+    validator = new CompanyIdentifiers().setCountry(
       AVAILABLE_ORG_COUNTRIES_ISO_CODE.DK
     );
   });

@@ -1,8 +1,8 @@
 {
-  "name": "company-registration-verifier",
+  "name": "company-identifiers",
   "version": "0.0.1",
-  "description": "A collection of functions to verify if companies registrations numbers are valid",
-  "main": "index.ts",
+  "description": "A collection of functions to manipulaate companies identifiers",
+  "main": "src/index.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc -p ."

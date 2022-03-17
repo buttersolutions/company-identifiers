@@ -1,7 +1,7 @@
 import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "./enums";
 import { VALIDATORS, STANDARDS } from "./validators";
 
-export class CompanyRegistrationValidator {
+export class CompanyIdentifiers {
   private countryCode: AVAILABLE_ORG_COUNTRIES_ISO_CODE =
     AVAILABLE_ORG_COUNTRIES_ISO_CODE.DK;
   private standardCode: string = "";

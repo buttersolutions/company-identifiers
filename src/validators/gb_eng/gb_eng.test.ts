@@ -1,11 +1,11 @@
-import { CompanyRegistrationValidator } from "../../CompanyRegistrationValidator";
+import { CompanyIdentifiers } from "../../CompanyIdentifiers";
 import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "../../enums";
 
 describe("GB-ENG Validator", () => {
-  let validator: CompanyRegistrationValidator;
+  let validator: CompanyIdentifiers;
 
   beforeEach(() => {
-    validator = new CompanyRegistrationValidator();
+    validator = new CompanyIdentifiers();
     validator.setCountry(AVAILABLE_ORG_COUNTRIES_ISO_CODE.GB_ENG);
   });
 
