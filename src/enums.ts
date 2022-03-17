@@ -1,0 +1,4 @@
+export enum AVAILABLE_ORG_COUNTRIES_ISO_CODE {
+  DK = "DK",
+  GB_ENG = "GB-ENG",
+}
