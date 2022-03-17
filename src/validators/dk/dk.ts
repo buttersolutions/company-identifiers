@@ -1,0 +1,30 @@
+import { ValidatorConfig } from "../../typings";
+
+export enum DK_STANDARDS {
+  CVR = "CVR",
+}
+
+/*
+  The calculation and rules are based on this article:
+    https://wiki.scn.sap.com/wiki/display/CRM/Denmark
+*/
+const validateMod11 = (registration: string) => {
+  const result: number = registration.split("").reduce((acc, digit, index) => {
+    return acc + parseInt(digit) * (index === 0 ? 2 : 8 - index);
+  }, 0);
+  return result % 11 === 0;
+};
+
+const DKValidator: Record<DK_STANDARDS, ValidatorConfig> = {
+  CVR: {
+    minSize: 8,
+    maxSize: 8,
+    format: [/[0-9]{8}/],
+    validator(registration) {
+      if (registration[0] === "0") return false;
+      return validateMod11(registration);
+    },
+  },
+};
+
+export { DKValidator };
