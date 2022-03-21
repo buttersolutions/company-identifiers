@@ -1,16 +1,16 @@
-import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "../enums";
+import { AVAILABLE_COUNTRIES_ISO_CODE } from "../enums";
 import { ValidatorConfig } from "../typings";
 
-import { DKValidator, DK_STANDARDS } from "./dk";
-import { GB_ENGValidator, GB_ENG_STANDARDS } from "./gb_eng";
+import { DKValidator, DK_CODES } from "./dk";
+import { GB_ENGValidator, GB_ENG_CODES } from "./gb_eng";
 
-export const STANDARDS = {
-  DK: DK_STANDARDS,
-  "GB-ENG": GB_ENG_STANDARDS,
+export const CODES = {
+  DK: DK_CODES,
+  "GB-ENG": GB_ENG_CODES,
 };
 
 type ValidatorsCollection = Record<
-  AVAILABLE_ORG_COUNTRIES_ISO_CODE,
+  AVAILABLE_COUNTRIES_ISO_CODE,
   Record<string, ValidatorConfig>
 >;
 

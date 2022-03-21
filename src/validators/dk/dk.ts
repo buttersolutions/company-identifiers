@@ -1,6 +1,6 @@
 import { ValidatorConfig } from "../../typings";
 
-export enum DK_STANDARDS {
+export enum DK_CODES {
   CVR = "CVR",
 }
 
@@ -15,7 +15,7 @@ const validateMod11 = (registration: string) => {
   return result % 11 === 0;
 };
 
-const DKValidator: Record<DK_STANDARDS, ValidatorConfig> = {
+const DKValidator: Record<DK_CODES, ValidatorConfig> = {
   CVR: {
     minSize: 8,
     maxSize: 8,

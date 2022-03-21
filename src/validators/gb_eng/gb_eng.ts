@@ -1,6 +1,6 @@
 import { ValidatorConfig } from "../../typings";
 
-export enum GB_ENG_STANDARDS {
+export enum GB_ENG_CODES {
   VAT = "VAT",
 }
 
@@ -23,7 +23,7 @@ const validateMod97 = (registration: string) => {
   return result % 97 === 0 || (result + 55) % 97 === 0;
 };
 
-const GB_ENGValidator: Record<GB_ENG_STANDARDS, ValidatorConfig> = {
+const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
   VAT: {
     minSize: 9,
     /* The number can be prefixed with "GB":
