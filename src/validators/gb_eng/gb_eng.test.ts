@@ -1,17 +1,17 @@
 import { CompanyIdentifiers } from "../../CompanyIdentifiers";
-import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "../../enums";
+import { AVAILABLE_COUNTRIES_ISO_CODE } from "../../enums";
 
 describe("GB-ENG Validator", () => {
   let validator: CompanyIdentifiers;
 
   beforeEach(() => {
     validator = new CompanyIdentifiers();
-    validator.setCountry(AVAILABLE_ORG_COUNTRIES_ISO_CODE.GB_ENG);
+    validator.setCountry(AVAILABLE_COUNTRIES_ISO_CODE.GB_ENG);
   });
 
   describe("VAT Standard", () => {
     beforeEach(() => {
-      validator.setStandard("VAT");
+      validator.setCode("VAT");
     });
 
     it("should succeed by first condition", () => {

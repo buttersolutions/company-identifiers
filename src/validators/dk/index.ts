@@ -1,1 +1,1 @@
-export { DKValidator, DK_STANDARDS } from "./dk";
+export { DKValidator, DK_CODES } from "./dk";

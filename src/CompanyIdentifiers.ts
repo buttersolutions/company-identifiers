@@ -1,33 +1,33 @@
-import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "./enums";
-import { VALIDATORS, STANDARDS } from "./validators";
+import { AVAILABLE_COUNTRIES_ISO_CODE } from "./enums";
+import { VALIDATORS, CODES } from "./validators";
 
 export class CompanyIdentifiers {
-  private countryCode: AVAILABLE_ORG_COUNTRIES_ISO_CODE =
-    AVAILABLE_ORG_COUNTRIES_ISO_CODE.DK;
-  private standardCode: string = "";
+  private countryCode: AVAILABLE_COUNTRIES_ISO_CODE =
+    AVAILABLE_COUNTRIES_ISO_CODE.DK;
+  private code: string = "";
 
-  public setCountry(countryCode: AVAILABLE_ORG_COUNTRIES_ISO_CODE) {
+  public setCountry(countryCode: AVAILABLE_COUNTRIES_ISO_CODE) {
     this.countryCode = countryCode;
     return this;
   }
 
-  public setStandard(standard: string) {
-    const possibleValues = Object.values(STANDARDS[this.countryCode]);
+  public setCode(code: string) {
+    const possibleValues = Object.values(CODES[this.countryCode]);
 
-    const isValidStandard = possibleValues.some((value) => value === standard);
+    const isValidCode = possibleValues.some((value) => value === code);
 
-    if (!isValidStandard)
+    if (!isValidCode)
       throw new Error(`
-        Standard ${standard} is not supported for ${this.countryCode},
-        Supported standards are: ${possibleValues.join(", ")}
+        Code ${code} is not supported for ${this.countryCode},
+        Supported Codes are: ${possibleValues.join(", ")}
       `);
 
-    this.standardCode = standard;
+    this.code = code;
     return this;
   }
 
   public validate(registration: string): boolean {
-    const config = VALIDATORS[this.countryCode][this.standardCode];
+    const config = VALIDATORS[this.countryCode][this.code];
 
     return (
       registration.length >= config.minSize &&

@@ -1,18 +1,18 @@
 import { CompanyIdentifiers } from "../../CompanyIdentifiers";
-import { AVAILABLE_ORG_COUNTRIES_ISO_CODE } from "../../enums";
+import { AVAILABLE_COUNTRIES_ISO_CODE } from "../../enums";
 
 describe("DK Validator", () => {
   let validator: CompanyIdentifiers;
 
   beforeEach(() => {
     validator = new CompanyIdentifiers().setCountry(
-      AVAILABLE_ORG_COUNTRIES_ISO_CODE.DK
+      AVAILABLE_COUNTRIES_ISO_CODE.DK
     );
   });
 
   describe("CVR Standard", () => {
     beforeEach(() => {
-      validator.setStandard("CVR");
+      validator.setCode("CVR");
     });
 
     it("should succeed", () => {
