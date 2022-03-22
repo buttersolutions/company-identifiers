@@ -1,6 +1,6 @@
 import { ValidatorConfig } from "../../typings";
 
-export enum GB_ENG_CODES {
+enum GB_ENG_CODES {
   VAT = "VAT",
 }
 
@@ -37,4 +37,4 @@ const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
   },
 };
 
-export { GB_ENGValidator };
+export { GB_ENGValidator, GB_ENG_CODES };

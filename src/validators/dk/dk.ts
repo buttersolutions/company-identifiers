@@ -1,6 +1,6 @@
 import { ValidatorConfig } from "../../typings";
 
-export enum DK_CODES {
+enum DK_CODES {
   CVR = "CVR",
 }
 
@@ -27,4 +27,4 @@ const DKValidator: Record<DK_CODES, ValidatorConfig> = {
   },
 };
 
-export { DKValidator };
+export { DKValidator, DK_CODES };
