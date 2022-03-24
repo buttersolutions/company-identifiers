@@ -7,5 +7,6 @@ export declare class CompanyIdentifiers {
     setCountry(countryCode: AVAILABLE_COUNTRIES_ISO_CODE): this;
     setCode(code: string): this;
     validate(registration: string): boolean;
+    hasBeenConfigured(): boolean;
     getConfig(): PublicValidatorConfig;
 }

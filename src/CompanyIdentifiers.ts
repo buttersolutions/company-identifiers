@@ -44,6 +44,10 @@ export class CompanyIdentifiers {
     );
   }
 
+  public hasBeenConfigured(): boolean {
+    return !!this.config;
+  }
+
   public getConfig(): PublicValidatorConfig {
     if (!this.config) {
       throw new Error(
