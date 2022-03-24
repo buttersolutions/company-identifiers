@@ -1,5 +1,6 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "./enums";
-import { PublicValidatorConfig } from "./typings";
+import { ValidatorConfig } from "./typings";
+export declare type PublicValidatorConfig = Omit<ValidatorConfig, "validator">;
 export declare class CompanyIdentifiers {
     private countryCode;
     private code;

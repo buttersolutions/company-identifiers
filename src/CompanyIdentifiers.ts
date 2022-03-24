@@ -1,7 +1,8 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "./enums";
-import { ValidatorConfig, PublicValidatorConfig } from "./typings";
+import { ValidatorConfig } from "./typings";
 import { VALIDATORS, CODES } from "./validators";
 
+export type PublicValidatorConfig = Omit<ValidatorConfig, "validator">;
 export class CompanyIdentifiers {
   private countryCode: AVAILABLE_COUNTRIES_ISO_CODE =
     AVAILABLE_COUNTRIES_ISO_CODE.DK;
