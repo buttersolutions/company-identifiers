@@ -30,6 +30,7 @@ const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
         https://www.pattersonhallaccountants.co.uk/vat-registration-number/
     */
     maxSize: 11,
+    sizeText: "between 9 characters long or 11 if 'GB' prefix is present",
     format: [/GB[0-9]{9}/, /[0-9]{9}/],
     validator(registration) {
       return validateMod97(registration);

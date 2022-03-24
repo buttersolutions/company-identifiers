@@ -1,5 +1,5 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "./enums";
-import { ValidatorConfig } from "./typings";
+import { ValidatorConfig, PublicValidatorConfig } from "./typings";
 import { VALIDATORS, CODES } from "./validators";
 
 export class CompanyIdentifiers {
@@ -44,13 +44,18 @@ export class CompanyIdentifiers {
     );
   }
 
-  public getConfig(): ValidatorConfig {
+  public getConfig(): PublicValidatorConfig {
     if (!this.config) {
       throw new Error(
         "Configuration has not been set, check if both country and code are set"
       );
     }
 
-    return this.config;
+    const ConvertToPublicConfig = ({
+      validator,
+      ...publicConfig
+    }: ValidatorConfig): PublicValidatorConfig => publicConfig;
+
+    return ConvertToPublicConfig(this.config);
   }
 }

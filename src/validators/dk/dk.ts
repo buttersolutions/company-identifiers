@@ -19,6 +19,7 @@ const DKValidator: Record<DK_CODES, ValidatorConfig> = {
   CVR: {
     minSize: 8,
     maxSize: 8,
+    sizeText: "8 characters long",
     format: [/[0-9]{8}/],
     validator(registration) {
       if (registration[0] === "0") return false;
