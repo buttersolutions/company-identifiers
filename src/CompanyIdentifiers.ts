@@ -1,10 +1,12 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "./enums";
+import { ValidatorConfig } from "./typings";
 import { VALIDATORS, CODES } from "./validators";
 
 export class CompanyIdentifiers {
   private countryCode: AVAILABLE_COUNTRIES_ISO_CODE =
     AVAILABLE_COUNTRIES_ISO_CODE.DK;
   private code: string = "";
+  private config: ValidatorConfig | undefined;
 
   public setCountry(countryCode: AVAILABLE_COUNTRIES_ISO_CODE) {
     this.countryCode = countryCode;
@@ -23,17 +25,32 @@ export class CompanyIdentifiers {
       `);
 
     this.code = code;
+    this.config = VALIDATORS[this.countryCode][this.code];
     return this;
   }
 
   public validate(registration: string): boolean {
-    const config = VALIDATORS[this.countryCode][this.code];
+    if (!this.config) {
+      throw new Error(
+        "Configuration has not been set, check if both country and code are set"
+      );
+    }
 
     return (
-      registration.length >= config.minSize &&
-      registration.length <= config.maxSize &&
-      config.format.some((f) => registration.match(f)) &&
-      config.validator(registration)
+      registration.length >= this.config.minSize &&
+      registration.length <= this.config.maxSize &&
+      this.config.format.some((f) => registration.match(f)) &&
+      this.config.validator(registration)
     );
+  }
+
+  public getConfig(): ValidatorConfig {
+    if (!this.config) {
+      throw new Error(
+        "Configuration has not been set, check if both country and code are set"
+      );
+    }
+
+    return this.config;
   }
 }
