@@ -8,6 +8,10 @@ export class CompanyIdentifiers {
   private code: string = "";
   private config: ValidatorConfig | undefined;
 
+  public static GraphQLCodeToReadable(graphqlCode: string): string {
+    return graphqlCode.split("__").join(":");
+  }
+
   public setCountry(countryCode: AVAILABLE_COUNTRIES_ISO_CODE) {
     this.countryCode = countryCode;
     return this;
