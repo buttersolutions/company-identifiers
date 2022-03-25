@@ -1,5 +1,5 @@
 {
-  "name": "company-identifiers",
+  "name": "@buttersolutions/company-identifiers",
   "version": "1.4.1",
   "description": "A collection of functions to manipulaate companies identifiers",
   "main": "lib/index.js",
