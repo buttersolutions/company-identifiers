@@ -34,19 +34,36 @@ export class CompanyIdentifiers {
     return this;
   }
 
-  public validate(registration: string): boolean {
+  public validate(registration: string): {isValid: boolean, error?: Error} {
     if (!this.config) {
       throw new Error(
         "Configuration has not been set, check if both country and code are set"
       );
     }
 
-    return (
-      registration.length >= this.config.minSize &&
-      registration.length <= this.config.maxSize &&
-      this.config.format.some((f) => registration.match(f)) &&
-      this.config.validator(registration)
-    );
+    try {
+      if (registration.length < this.config.minSize) {
+        throw new Error('value is too short')
+      }
+  
+      if (registration.length > this.config.maxSize) {
+        throw new Error('value is too large')
+      }
+  
+      if (!this.config.format.some((f) => registration.match(f))) {
+        throw new Error('value does not match format')
+      }
+  
+      if (!this.config.validator(registration)) {
+        throw new Error('value does not match validator')
+      }
+    } catch (e) {
+      const error = e as Error;
+      return {isValid: false, error};
+    }
+    
+    
+    return {isValid: true, error: undefined};
   }
 
   public hasBeenConfigured(): boolean {

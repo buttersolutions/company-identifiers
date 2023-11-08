@@ -8,7 +8,10 @@ export declare class CompanyIdentifiers {
     static GraphQLCodeToReadable(graphqlCode: string): string;
     setCountry(countryCode: AVAILABLE_COUNTRIES_ISO_CODE): this;
     setCode(code: string): this;
-    validate(registration: string): boolean;
+    validate(registration: string): {
+        isValid: boolean;
+        error?: Error;
+    };
     hasBeenConfigured(): boolean;
     getConfig(): PublicValidatorConfig;
 }
