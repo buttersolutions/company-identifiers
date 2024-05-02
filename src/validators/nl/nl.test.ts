@@ -12,7 +12,7 @@ describe("NL Validator", () => {
 
   describe("Corporate Identity Number Standard", () => {
     beforeEach(() => {
-      validator.setCode("CorporateIdentityNumber");
+      validator.setCode("btw-number");
     });
 
     it("should succeed", () => {
@@ -21,12 +21,12 @@ describe("NL Validator", () => {
     });
 
     it("should fail due to wrong size", () => {
-      const result = validator.validate("123456789");
+      const result = validator.validate("1234567");
       expect(result.isValid).toBe(false);
     });
 
     it("should fail due to wrong format", () => {
-      const result = validator.validate("123456");
+      const result = validator.validate("1234562323232323");
       expect(result.isValid).toBe(false);
     });
   });

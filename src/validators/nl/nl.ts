@@ -1,15 +1,15 @@
 import { ValidatorConfig } from "../../typings";
 
 enum NL_CODES {
-  CorporateIdentityNumber = "CorporateIdentityNumber",
+  "btw-number" = "btw-number",
 }
 
 const NLValidator: Record<NL_CODES, ValidatorConfig> = {
-  CorporateIdentityNumber: {
+  "btw-number": {
     minSize: 12,
     maxSize: 12,
     sizeText: "12 characters long",
-    format: [/[[:alnum:]]{12}/], // 5594453077, but canonical format contains a dash that should be removed before being validated: 559445-3077
+    format: [/^[A-Za-z0-9]{12}$/], // 5594453077, but canonical format contains a dash that should be removed before being validated: 559445-3077
     validator(registration: string): boolean {
       return true;
     },

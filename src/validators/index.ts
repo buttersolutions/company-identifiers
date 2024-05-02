@@ -1,16 +1,17 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "../enums";
 import { ValidatorConfig } from "../typings";
-
-import { DKValidator, DK_CODES } from "./dk";
-import { GB_ENGValidator, GB_ENG_CODES } from "./gb_eng";
-import { NOValidator, NO_CODES } from "./no";
-import { SEValidator, SE_CODES } from "./se";
+import { DK_CODES, DKValidator } from "./dk";
+import { GB_ENG_CODES, GB_ENGValidator } from "./gb_eng";
+import { NL_CODES, NLValidator } from "./nl";
+import { NO_CODES, NOValidator } from "./no";
+import { SE_CODES, SEValidator } from "./se";
 
 export const CODES = {
   "GB-ENG": GB_ENG_CODES,
   DK: DK_CODES,
   NO: NO_CODES,
-  SE: SE_CODES
+  SE: SE_CODES,
+  NL: NL_CODES,
 };
 
 type ValidatorsCollection = Record<
@@ -20,9 +21,10 @@ type ValidatorsCollection = Record<
 
 const VALIDATORS: ValidatorsCollection = {
   "GB-ENG": GB_ENGValidator,
-  "NO": NOValidator,
-  "SE": SEValidator,
+  NO: NOValidator,
+  SE: SEValidator,
   DK: DKValidator,
+  NL: NLValidator,
 };
 
 export { VALIDATORS };
