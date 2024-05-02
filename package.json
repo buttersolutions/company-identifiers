@@ -1,6 +1,6 @@
 {
   "name": "company-identifiers",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "A collection of functions to manipulate companies identifiers",
   "main": "lib/index.js",
   "files": [
