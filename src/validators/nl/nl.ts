@@ -1,11 +1,11 @@
 import { ValidatorConfig } from "../../typings";
 
 enum NL_CODES {
-  "btw-number" = "btw-number",
+  "btwNumber" = "btwNumber",
 }
 
 const NLValidator: Record<NL_CODES, ValidatorConfig> = {
-  "btw-number": {
+  btwNumber: {
     minSize: 12,
     maxSize: 12,
     sizeText: "12 characters long",
