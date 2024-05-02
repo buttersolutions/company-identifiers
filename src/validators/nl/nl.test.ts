@@ -12,7 +12,7 @@ describe("NL Validator", () => {
 
   describe("Corporate Identity Number Standard", () => {
     beforeEach(() => {
-      validator.setCode("btw-number");
+      validator.setCode("btwNumber");
     });
 
     it("should succeed", () => {
