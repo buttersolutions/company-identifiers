@@ -3,5 +3,6 @@ export declare enum AVAILABLE_COUNTRIES_ISO_CODE {
     GB_ENG = "GB-ENG",
     NO = "NO",
     SE = "SE",
-    NL = "NL"
+    NL = "NL",
+    DE = "DE"
 }

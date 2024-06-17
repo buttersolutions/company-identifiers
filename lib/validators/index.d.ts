@@ -1,5 +1,6 @@
 import { AVAILABLE_COUNTRIES_ISO_CODE } from "../enums";
 import { ValidatorConfig } from "../typings";
+import { DE_CODES } from "./de";
 import { DK_CODES } from "./dk";
 import { GB_ENG_CODES } from "./gb_eng";
 import { NL_CODES } from "./nl";
@@ -11,6 +12,7 @@ export declare const CODES: {
     NO: typeof NO_CODES;
     SE: typeof SE_CODES;
     NL: typeof NL_CODES;
+    DE: typeof DE_CODES;
 };
 declare type ValidatorsCollection = Record<AVAILABLE_COUNTRIES_ISO_CODE, Record<string, ValidatorConfig>>;
 declare const VALIDATORS: ValidatorsCollection;
