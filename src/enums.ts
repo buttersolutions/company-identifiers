@@ -4,4 +4,5 @@ export enum AVAILABLE_COUNTRIES_ISO_CODE {
   NO = "NO", // 🇳🇴
   SE = "SE", // 🇸🇪
   NL = "NL", // 🇳🇱
+  DE = "DE", // 🇩🇪
 }
