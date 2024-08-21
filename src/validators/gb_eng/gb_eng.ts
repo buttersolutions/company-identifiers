@@ -25,7 +25,7 @@ const validateMod97 = (registration: string) => {
 
 const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
   VAT: {
-    minSize: 9,
+    minSize: 8,
     /* The number can be prefixed with "GB":
         https://www.pattersonhallaccountants.co.uk/vat-registration-number/
     */
