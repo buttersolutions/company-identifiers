@@ -15,14 +15,19 @@ describe("DE Validator", () => {
       validator.setCode("UST_IDNR");
     });
 
-    it("should succeed", () => {
+    it("should fail", () => {
       const result = validator.validate("123456789B01");
       expect(result.isValid).toBe(false);
     });
 
-    it("should fail due to wrong size", () => {
-      const result = validator.validate("123456789");
+    it("should succeed with DE", () => {
+      const result = validator.validate("DE123456782");
       expect(result.isValid).toBe(true);
+    });
+
+    it("should fail due to wrong size", () => {
+      const result = validator.validate("DE12345678923");
+      expect(result.isValid).toBe(false);
     });
 
     it("should fail due to wrong format", () => {
