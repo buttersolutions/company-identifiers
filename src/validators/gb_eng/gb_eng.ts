@@ -8,19 +8,26 @@ enum GB_ENG_CODES {
   The calculation and rules are based on this article:
     https://wiki.scn.sap.com/wiki/display/CRM/United+Kingdom
 */
-const validateMod97 = (registration: string) => {
+const validateMod = (registration: string): boolean => {
+  // Remove the "GB" prefix if present
   const r = registration.startsWith("GB")
     ? registration.slice(2)
     : registration;
 
-  const result: number = r
-    .slice(0, -2)
-    .split("")
-    .reduce((acc, digit, index) => {
-      return acc + parseInt(digit) * (8 - index);
-    }, parseInt(r.slice(-2)));
+  // Check if the length is exactly 8 characters
+  if (r.length !== 8) {
+    console.log("Validation failed: length is not 8 characters.");
+    return false;
+  }
 
-  return result % 97 === 0 || (result + 55) % 97 === 0;
+  // Ensure the input is numeric
+  if (isNaN(Number(r))) {
+    console.log("Validation failed: contains non-numeric characters.");
+    return false;
+  }
+
+  // If both checks pass, return true
+  return true;
 };
 
 const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
@@ -30,10 +37,10 @@ const GB_ENGValidator: Record<GB_ENG_CODES, ValidatorConfig> = {
         https://www.pattersonhallaccountants.co.uk/vat-registration-number/
     */
     maxSize: 11,
-    sizeText: "between 9 characters long or 11 if 'GB' prefix is present",
-    format: [/GB[0-9]{9}/, /[0-9]{9}/],
+    sizeText: "between 8 characters long or 11 if 'GB' prefix is present",
+    format: [/GB[0-9]{8}/, /[0-9]{8}/],
     validator(registration) {
-      return validateMod97(registration);
+      return validateMod(registration);
     },
   },
 };

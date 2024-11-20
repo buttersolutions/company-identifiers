@@ -15,22 +15,22 @@ describe("GB-ENG Validator", () => {
     });
 
     it("should succeed by first condition", () => {
-      const result = validator.validate("434031494");
+      const result = validator.validate("43400149");
       expect(result.isValid).toBe(true);
     });
 
     it("should succeed by second condition", () => {
-      const result = validator.validate("434031439");
+      const result = validator.validate("43403143");
       expect(result.isValid).toBe(true);
     });
 
-    it("should succed with prefixed GB", () => {
-      const result = validator.validate("GB434031494");
+    it("should succeed with prefixed GB", () => {
+      const result = validator.validate("GB43403144");
       expect(result.isValid).toBe(true);
     });
 
     it("should fail due to wrong size", () => {
-      const result = validator.validate("43403149");
+      const result = validator.validate("4340314239");
       expect(result.isValid).toBe(false);
     });
 

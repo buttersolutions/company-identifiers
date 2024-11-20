@@ -19,9 +19,13 @@ describe("NL Validator", () => {
       const result = validator.validate("123456789B01");
       expect(result.isValid).toBe(true);
     });
+    it("should succeed", () => {
+      const result = validator.validate("123456789");
+      expect(result.isValid).toBe(true);
+    });
 
     it("should fail due to wrong size", () => {
-      const result = validator.validate("1234567");
+      const result = validator.validate("12345");
       expect(result.isValid).toBe(false);
     });
 
